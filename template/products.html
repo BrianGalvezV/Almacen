@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+
+{% block container %}
+<br>
+<br>
+<div class="row justify-content-md-center">
+    <div class="card" style="width: 30rem;">
+        <div class="card-body">
+            <div class="form-group">
+                <form action="" class="form_product" method="post">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <br>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <input type="submit" class="btn btn-primary" value="Enviar">
+                    </div>
+                </form>
+            </div>
+            {{mensaje}}
+        </div>
+    </div>
+</div>
+{% endblock %}
