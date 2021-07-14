@@ -1,10 +1,13 @@
 from django.shortcuts import render
 
+#Models
+from .models import Products
+
 #Forms
 from .forms import ProductsForm
 
 # Create your views here.
-def products_list(request):
+def products(request):
     data = {
         'form': ProductsForm()
     }
@@ -18,3 +21,10 @@ def products_list(request):
             data['form'] = formulario
             
     return render(request, 'products.html', data)
+
+def products_list(request):
+    productos = Products.objects.all()
+    data = {
+        'productos': productos
+    }
+    return render(request, 'lista.html', data)
