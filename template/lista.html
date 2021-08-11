@@ -20,6 +20,10 @@
                 <td>{{p.description}}</td>
                 <td>{{p.quantity}}</td>
                 <td>$ {{p.price}}</td>
+                <td>
+                <a class="btn btn-info" href="{% url 'editar_producto' p.id %}">Editar</a>
+                <a class="btn btn-danger" href="{% url 'eliminar_producto' p.id %}">Eliminar</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
