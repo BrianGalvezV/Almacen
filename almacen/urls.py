@@ -26,4 +26,5 @@ urlpatterns = [
     path('edit/<id>', edit_item, name="editar_producto"),
     path('delete_item/<id>/', delete_item, name="eliminar_producto" ),
     path('', LoginView.as_view(template_name='login.html', authentication_form=UserForm), name="login"),
+    path('logout', LogoutView.as_view(template_name='logout.html'), name="logout"),
 ]
