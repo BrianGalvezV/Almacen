@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.auth.views import LoginView, LogoutView
 from products.views import products, products_list, delete_item, edit_item
+from products.forms import UserForm
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,5 +25,5 @@ urlpatterns = [
     path('list', products_list, name="lista_productos"),
     path('edit/<id>', edit_item, name="editar_producto"),
     path('delete_item/<id>/', delete_item, name="eliminar_producto" ),
-    path('', LoginView.as_view(template_name='login.html'), name="login"),
+    path('', LoginView.as_view(template_name='login.html', authentication_form=UserForm), name="login"),
 ]

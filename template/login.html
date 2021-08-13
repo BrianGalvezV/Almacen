@@ -1,4 +1,4 @@
-{% extends 'base.html'%} {% load crispy_forms_tags %} {% block container %}
+{% extends 'base.html'%}  {% block container %}
 <style>
   .asteriskField {
     display: none;
@@ -13,7 +13,7 @@
   <div class="card" style="width: 30rem">
     <div class="card-body">
       <form method="post">
-        {% csrf_token %} {{ form|crispy}}
+        {% csrf_token %} {{form.as_p}}
         <br />
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

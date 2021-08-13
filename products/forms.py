@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import User
+from django.contrib.auth.forms import AuthenticationForm
 from .models import Products
 
 class ProductsForm(forms.ModelForm):
@@ -15,3 +15,18 @@ class ProductsForm(forms.ModelForm):
             'price' : forms.NumberInput(attrs={'class': 'form-control'}),
 
         }
+
+class UserForm(AuthenticationForm):
+    def __init__(self, *args, **kwargs):
+        super(UserForm, self).__init__(*args, **kwargs)
+
+    username = forms.CharField(widget=forms.TextInput(attrs={
+        "class": "form-control"
+        
+    }), label="Usuario")
+
+    password = forms.CharField(widget=forms.TextInput(attrs={
+        "class": "form-control",
+        "type": "password"
+        
+    }), label="Contraseña")
